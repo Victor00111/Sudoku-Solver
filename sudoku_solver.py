@@ -1,9 +1,9 @@
 
 def find_next_empty(puzzle):
-    for r in range(9):
-        for c in range(9):
-            if puzzle[r][c] == 0:
-                return r,c
+    for row in range(9):
+        for col in range(9):
+            if puzzle[row][col] == 0:
+                return row, col
     return None, None
 
 
@@ -19,9 +19,9 @@ def is_valid(puzzle, guess, row, col):
     row_start = (row // 3) * 3
     col_start = (col // 3) * 3
     
-    for r in range(row_start, row_start + 3):
-        for c in range(col_start, col_start + 3):
-            if puzzle[r][c] == guess:
+    for row in range(row_start, row_start + 3):
+        for col in range(col_start, col_start + 3):
+            if puzzle[row][col] == guess:
                 return False
      
     return True
@@ -43,7 +43,7 @@ def solve_sudoku(puzzle):
 
 
 if __name__ == '__main__':
-    puzzle =    [[3, 0, 6, 5, 0, 8, 4, 0, 0], 
+    puzzle =   [[3, 0, 6, 5, 0, 8, 4, 0, 0], 
                 [5, 2, 0, 0, 0, 0, 0, 0, 0], 
                 [0, 8, 7, 0, 0, 0, 0, 3, 1], 
                 [0, 0, 3, 0, 1, 0, 0, 8, 0], 
@@ -52,7 +52,14 @@ if __name__ == '__main__':
                 [1, 3, 0, 0, 0, 0, 2, 5, 0], 
                 [0, 0, 0, 0, 0, 0, 0, 7, 4], 
                 [0, 0, 5, 2, 0, 6, 3, 0, 0]]
-    print(solve_sudoku(puzzle))
-    print(puzzle)
-
-    
+    invalid = [[1, 0, 0, 0, 0, 0, 0, 0, 0],
+               [0, 0, 0, 0, 0, 0, 0, 0, 0],
+               [1, 0, 0, 0, 0, 0, 0, 0, 0],
+               [0, 0, 0, 0, 0, 0, 0, 0, 0],
+               [0, 0, 0, 0, 0, 0, 0, 0, 0],
+               [0, 0, 0, 0, 0, 0, 0, 0, 0],
+               [0, 0, 0, 0, 0, 0, 0, 0, 0],
+               [0, 0, 0, 0, 0, 0, 0, 0, 0],
+               [0, 0, 0, 0, 0, 0, 0, 0, 0]]
+    print(solve_sudoku(invalid))
+    print(invalid)
